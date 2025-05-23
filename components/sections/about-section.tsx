@@ -41,7 +41,7 @@ export function AboutSection() {
         <motion.div variants={itemVariants} className="flex items-center justify-center">
           <div className="relative h-80 w-80 overflow-hidden rounded-full border-2 border-black">
             <Image
-              src="/image/myPicAnim.png"
+              src="/image/myPic.png"
               alt="Oulad Dahman Ilyass"
               fill
               className="object-cover"
