@@ -35,7 +35,7 @@ Try it out! Start by typing 'ls' to see available sections.
     <Button
       variant="outline"
       size="icon"
-      className="fixed bottom-6 left-6 z-40 h-12 w-12 rounded-full border-primary/20 bg-background/50 backdrop-blur-md"
+      className="fixed bottom-6 right-20 z-40 h-12 w-12 rounded-full border-primary/20 bg-background/50 backdrop-blur-md"
       onClick={openTerminal}
       aria-label="Open CV Terminal"
     >

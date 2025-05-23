@@ -41,7 +41,7 @@ export function AboutSection() {
         <motion.div variants={itemVariants} className="flex items-center justify-center">
           <div className="relative h-80 w-80 overflow-hidden rounded-full border-2 border-black">
             <Image
-              src="/placeholder.svg?height=320&width=320"
+              src="/image/myPic.JPG"
               alt="Oulad Dahman Ilyass"
               fill
               className="object-cover"
@@ -70,7 +70,7 @@ export function AboutSection() {
               <h3 className="mb-2 text-xl font-medium">Contact</h3>
               <ul className="space-y-1 text-sm">
                 <li>ilyassouladdahman@gmail.com</li>
-                <li>0626-414569</li>
+                <li>+216 26 414 569</li>
                 <li>
                   <a href="https://linkedin.com/in/ilyassod" className="hover:underline">
                     linkedin.com/in/ilyassod

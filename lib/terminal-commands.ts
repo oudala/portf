@@ -83,41 +83,50 @@ ${commands
 
 function getProjectDetails(projectName: string): string {
   const projects: Record<string, string> = {
-    "e-commerce": `
-E-commerce Platform
-===================
-A fully functional e-commerce platform built with React, Next.js, and Stripe for payments.
-Features include product listings, shopping cart, user authentication, and order management.
+    "multimodal-store-management-system": `
+Multimodal Store Management System
+==================================
+Created a Flask-based store management system featuring advanced search capabilities through image recognition and voice commands.
+Implemented computer vision algorithms to identify products from images, allowing for inventory management through photo uploads.
+Integrated speech-to-text functionality enabling voice command operations for hands-free inventory control.
+Designed a responsive web interface with real-time inventory updates and multimodal search options.
+Tech: Flask, Python, TensorFlow, JavaScript.
     `,
-    "ai-content": `
-AI Content Generator
-====================
-A content generation tool powered by OpenAI's GPT-3.
-Generates articles, blog posts, and marketing copy based on user input.
+    "feature-rich-invoices-management-system": `
+Feature-Rich Invoices Management System
+=========================================
+Developed a comprehensive invoices management system using Laravel framework with intuitive interface and robust functionality.
+Implemented secure authentication with Laravel Breeze and advanced role-based access control using Laravel Spatie Permission.
+Built automated notification system using Laravel Mailer and integrated real-time data visualization with Laravel Charts.
+Created polished video presentation showcasing functionality and features for client demonstrations.
+Tech: Laravel, Spatie, Breeze, Laravel UI, Laravel Charts, Laravel Mailer, Notifications.
     `,
-    "3d-product": `
-3D Product Configurator
-=======================
-An interactive 3D product configurator built with Three.js.
-Allows users to customize products in real-time and visualize them from different angles.
+    "myorm-lightweight-java-orm-library": `
+MyORM - Lightweight Java ORM Library
+====================================
+Built a custom Java ORM to understand annotation-based object-relational mapping.
+Used reflection for dynamic mapping, with built-in CRUD and ACID transaction support.
+Integrated Caffeine caching and multi-database support (MySQL, PostgreSQL, SQLite).
+Packaged as a Maven-compatible library and published on GitHub.
+Technologies used: Java, Reflection, JDBC, Annotations, Caffeine, Maven.
     `,
-    "blockchain-explorer": `
-Blockchain Explorer
-===================
-A real-time blockchain explorer for tracking transactions and blocks.
-Built with Node.js, Express, and a blockchain API.
+    "persistent-memory-efficient-java-hashmap": `
+Persistent, Memory-Efficient Java HashMap
+===========================================
+Built a custom MemoryHashMap with optimized serialization and deserialization to overcome limitations of standard Java's HashMap for persistent data storage.
+Used VisualVM for performance profiling to identify and eliminate bottlenecks, improving save times by 28x (146.819ms -> 5.162ms) and load times by 1.8x (110.372ms -> 60.680ms).
+Reduced memory consumption by 39% (492MB -> 299MB heap usage) while maintaining full data integrity.
+Implemented comprehensive edge case testing and verification using JUnit to ensure reliability across various usage scenarios.
+Tech: Java, JUnit, VisualVM, Custom Serialization, Profiling, Memory Optimization.
     `,
-    "real-time-chat": `
-Real-time Chat Application
+    "nlp-annotation-platform": `
+NLP Annotation Platform
 =========================
-A real-time chat application built with Socket.IO and React.
-Features include private messaging, group chats, and user presence indicators.
-    `,
-    "mobile-fitness": `
-Mobile Fitness App
-==================
-A mobile fitness app built with React Native.
-Features include workout tracking, goal setting, and social sharing.
+Developed a collaborative text annotation web platform for NLP classification tasks using Spring Boot and React with OAuth2 authentication.
+Implemented role-based access control allowing administrators to manage datasets, assign annotators, and monitor annotation progress.
+Built an intelligent system to detect annotation quality metrics and identify potential spammers among annotators.
+Integrated Python ML pipeline execution directly from the admin interface to train and test NLP models on annotated data.
+Tech: Spring Boot, React, MySQL, Spring Security, OAuth2, Thymeleaf, Python NLP libraries.
     `,
   }
 
@@ -268,122 +277,63 @@ Example: cat experience
 function getCvSection(section: string): string {
   const cvSections: Record<string, string> = {
     summary: `
-Professional Summary
+Oulad dahman ilyass
 ===================
-Experienced software developer with over 5 years of expertise in building modern web applications.
-Specialized in frontend development with React and Next.js, with a strong foundation in backend
-technologies. Passionate about creating intuitive user experiences and solving complex problems
-through clean, efficient code.
+Computer Science Student
+
+Dynamic computer science student passionate about innovation and software engineering. Seeking to leverage skills in Java and microservices to build scalable and impactful solutions. Experienced in leadership through Enactus club activities, focusing on entrepreneurship and sustainable development.
     `,
 
     experience: `
-Work Experience
-==============
-
-Senior Frontend Developer | Tech Innovations Inc. | 2021 - Present
-----------------------------------------------------------------
-• Led the development of multiple web applications using React, Next.js, and TypeScript
-• Implemented CI/CD pipelines and improved deployment processes
-• Mentored junior developers and conducted code reviews
-• Collaborated with UX/UI designers to implement responsive designs
-• Reduced application load time by 40% through performance optimizations
-
-Frontend Developer | Digital Solutions Ltd. | 2018 - 2021
--------------------------------------------------------
-• Developed responsive web applications with modern frontend practices
-• Collaborated with designers and backend developers
-• Implemented state management solutions using Redux and Context API
-• Created reusable component libraries and documentation
-• Participated in agile development processes
-
-Web Developer Intern | StartUp Hub | 2017 - 2018
-----------------------------------------------
-• Assisted in the development of web applications
-• Learned modern web development practices
-• Gained experience with React and Node.js
-• Contributed to UI improvements and bug fixes
+Experience
+==========
+Leadership through Enactus club activities, focusing on entrepreneurship and sustainable development.
     `,
 
     education: `
 Education
 =========
-
-Master of Computer Science | University of Technology | 2016 - 2018
------------------------------------------------------------------
-• Specialized in Web Technologies and Software Engineering
-• Graduated with honors (GPA: 3.8/4.0)
-• Thesis: "Optimizing React Applications for Performance"
-• Relevant coursework: Advanced Algorithms, Web Architecture, Cloud Computing
-
-Bachelor of Computer Science | State University | 2012 - 2016
------------------------------------------------------------
-• Focused on Software Development and Database Systems
-• GPA: 3.7/4.0
-• Participated in multiple hackathons and coding competitions
-• Relevant coursework: Data Structures, Object-Oriented Programming, Database Design
+Engineering Degree in Computer Science Engineering | National School of Applied Science | 2023 - Present | Salé | Al Hoceima
+Preparatory Classes to Engineering Degree | National School of Applied Science | 2021 - 2023 | Al Hoceima
     `,
 
     skills: `
-Technical Skills
-===============
-
-Frontend Development:
-• React / Next.js (95%)
-• TypeScript (90%)
-• HTML / CSS / Tailwind (95%)
-• Three.js / WebGL (85%)
-
-Backend Development:
-• Node.js / Express (85%)
-• Python / Django (75%)
-• SQL / NoSQL Databases (80%)
-• GraphQL (70%)
-
-Other Skills:
-• Git, Docker, CI/CD
-• AWS, Firebase
-• Jest, Cypress
-• Figma, Agile, Scrum
+Skills & Technologies
+=====================
+Languages: C++, Java, C#, SQL/PLSQL, JavaScript, Python, PHP
+Technologies: .NET, Networks, NoSQL, Linux, Laravel, Spring Boot, React
+Skills: Leadership, Chess, Problem Solving (extensive experience with Codeforces and LeetCode challenges)
     `,
 
     certifications: `
 Certifications
-=============
-
-AWS Certified Developer | Amazon Web Services | 2022
--------------------------------------------------
-Credential ID: AWS-DEV-12345
-
-Professional Frontend Developer | Meta | 2021
-------------------------------------------
-Credential ID: MFD-67890
-
-Google Cloud Professional | Google | 2020
---------------------------------------
-Credential ID: GCP-54321
+==============
+Java SE 17 Developer (OCP 17)
+Java SE 11 Developer (OCP 11)
+Oracle Cloud Infrastructure 2024 Foundations Associate
     `,
 
     projects: `
 Projects
 ========
-1. E-commerce Platform
-2. AI Content Generator
-3. 3D Product Configurator
-4. Blockchain Explorer
-5. Real-time Chat Application
-6. Mobile Fitness App
+1. Multimodal Store Management System
+2. Feature-Rich Invoices Management System
+3. MyORM - Lightweight Java ORM Library
+4. Persistent, Memory-Efficient Java HashMap
+5. NLP Annotation Platform
 
 For details on a specific project, type: projects <project-name>
-Example: projects e-commerce
+Example: projects multimodal-store-management-system
     `,
 
     contact: `
 Contact Information
 ==================
-Email: ilyass@example.com
-LinkedIn: linkedin.com/in/ilyass
-GitHub: github.com/ilyass
-Twitter: twitter.com/ilyass
+Salé | Al Hoceima
+Email: ilyassouladdahman@gmail.com
+Phone: 0626-414569
+LinkedIn: linkedin.com/in/ilyassod
+GitHub: github.com/oudala
     `,
   }
 

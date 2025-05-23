@@ -13,6 +13,7 @@ import { SectionDivider } from "@/components/section-divider"
 import { CVTerminalButton } from "@/components/cv-terminal-button"
 import { Terminal } from "@/components/terminal/terminal"
 import { ChallengesButton } from "@/components/challenges-button"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Oulad Dahman Ilyass | Software Engineer Portfolio",

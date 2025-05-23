@@ -19,7 +19,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "Skills",
-    skills: ["Leadership", "Chess", "Problem Solving (extensive experience with Codeforces and LeetCode challenges)"],
+    skills: ["Leadership", "Chess", "Problem Solving (extensive experience with Codeforces and LeetCode challenges)" , "video editing"],
   },
 ]
 

@@ -17,7 +17,7 @@ export function SectionDivider() {
         className="absolute left-0 w-full"
       >
         <Image
-          src="/images/japanese-wave-small.png"
+          src="/image/wave.png"
           alt="Japanese Wave Divider"
           width={1920}
           height={200}

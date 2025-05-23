@@ -23,6 +23,18 @@ const educationList: Education[] = [
     location: "Al Hoceima",
     period: "2021 – 2023",
   },
+  {
+    degree: "years of Mathematics and information SMIA",
+    institution: "unevirsty of Mohammed V",
+    location: "Rabat",
+    period: "2020 – 2021",
+  },
+  {
+    degree: "Baccalauréat Sciences Math Appliquées A",
+    institution: "Lycée el Fakih el Hamdaoui",
+    location: "Salé",
+    period: "2019 - 2020",
+  },
 ]
 
 export function EducationSection() {

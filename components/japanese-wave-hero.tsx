@@ -20,7 +20,7 @@ export function JapaneseWaveHero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#f5f0e8]">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#f5f0e8] -mb-px">
       {/* Top header with titles */}
       <div className="container mx-auto px-4 pt-8">
         <div className="flex justify-between">
@@ -50,9 +50,9 @@ export function JapaneseWaveHero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="absolute left-1/2 top-[20%] -translate-x-1/2 transform"
+        className="absolute left-1/2 top-[10%] -translate-x-1/2 transform"
       >
-        <Image src="/images/japanese-clouds.png" alt="Japanese Clouds" width={600} height={200} priority />
+        <Image src="/image/japanese-clouds1.png" alt="Japanese Clouds" width={600} height={200} priority />
       </motion.div>
 
       {/* Center text */}
@@ -71,24 +71,24 @@ export function JapaneseWaveHero() {
           transition={{ duration: 1, delay: 1.2 }}
           className="mt-4 text-2xl font-medium sm:text-3xl md:text-4xl"
         >
-          2024
+          2025
         </motion.p>
       </div>
 
-      {/* Wave at bottom */}
-      <div ref={scrollRef} className="absolute bottom-0 left-0 w-full">
+      {/* Wave at bottom left side */}
+      {/* Adjusted width to sit on the left side */}
+      <div className="absolute bottom-[-130px] left-0 w-2/3 md:w-1/2 lg:w-1/3 h-[400px] md:h-[500px] lg:h-[600px]"> 
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.5, delay: 1.5 }}
-          className="w-full"
+          className="w-full h-full"
         >
           <Image
-            src="/images/japanese-wave.png"
+            src="/image/wave.png"
             alt="Japanese Wave"
-            width={1920}
-            height={600}
-            className="w-full"
+            fill
+            className="object-contain"
             priority
           />
         </motion.div>

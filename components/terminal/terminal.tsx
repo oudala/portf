@@ -5,6 +5,7 @@ import type React from "react"
 import { useEffect, useRef, useState } from "react"
 import { useTerminal } from "./terminal-provider"
 import { X } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
 
 export function Terminal() {
   const { isOpen, setIsOpen, history, addToHistory } = useTerminal()
@@ -12,15 +13,20 @@ export function Terminal() {
   const inputRef = useRef<HTMLInputElement>(null)
   const terminalRef = useRef<HTMLDivElement>(null)
 
+  // Focus input when terminal opens
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus()
     }
   }, [isOpen])
 
+  // Smooth auto-scroll to bottom when new content is added
   useEffect(() => {
     if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight
+      terminalRef.current.scrollTo({
+        top: terminalRef.current.scrollHeight,
+        behavior: "smooth",
+      })
     }
   }, [history])
 
@@ -118,18 +124,14 @@ Use 'cat <section>' to view details of each section:
 Work Experience
 ==============
 
-Software Engineer Intern | XYZ Company
-Jan 2023 - Present
-- Developed and maintained web applications using React and Node.js
-- Collaborated with cross-functional teams to deliver high-quality software
-- Implemented CI/CD pipelines to streamline deployment processes
+Java Developer Intern | Anobix
+Summer 2024
+- Developed and enhanced enterprise Java applications using Spring Framework
+- Implemented RESTful APIs and microservices architecture
+- Worked with Spring Boot, JPA/Hibernate for database operations
+- Participated in Agile development process and daily stand-ups
 
-Junior Developer | ABC Tech
-Jun 2022 - Dec 2022
-- Built responsive user interfaces using modern frontend frameworks
-- Participated in code reviews and implemented best practices
-- Assisted in troubleshooting and debugging application issues
-          `,
+`,
         })
         break
       case "education":
@@ -139,12 +141,33 @@ Jun 2022 - Dec 2022
 Education
 =========
 
-Bachelor of Science in Computer Science
-University of Technology
-2020 - 2024
-- GPA: 3.8/4.0
-- Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems
-- Senior project: AI-powered recommendation system
+Engineering Degree in Computer Science Engineering
+National School of Applied Science, Al Hoceima
+2023 – Present
+- Specializing in Software Engineering and Distributed Systems
+- Advanced coursework in Software Architecture, Cloud Computing, and AI
+- Research focus on Machine Learning and Data Engineering
+
+Preparatory Classes to Engineering Degree
+National School of Applied Science, Al Hoceima
+2021 – 2023
+- Intensive study in Mathematics, Physics, and Computer Science
+- Selected among top students for engineering program
+- Foundation in algorithmic thinking and programming basics
+
+Mathematics and Information Science (SMIA)
+University of Mohammed V, Rabat
+2020 – 2021
+- Core studies in Mathematics and Computer Science
+- Introduction to programming and data structures
+- Strong foundation in analytical problem-solving
+
+Baccalauréat Sciences Math Appliquées A
+Lycée el Fakih el Hamdaoui, Salé
+2019 - 2020
+- Mathematics and Physics specialization
+- Graduated with honors
+- Strong foundation in analytical and mathematical thinking
           `,
         })
         break
@@ -185,23 +208,48 @@ Other:
         addToHistory({
           type: "output",
           content: `
-Portfolio Projects
+ Portfolio Projects
 =================
 
-E-commerce Platform
-- Built with Next.js, Node.js, and MongoDB
-- Implemented user authentication, product catalog, and payment processing
-- GitHub: github.com/username/ecommerce-platform
+NLP Annotation Platform | 2025
+- Developed a collaborative text annotation platform using Spring Boot and React with OAuth2
+- Implemented role-based access control for dataset management and annotation monitoring
+- Built intelligent system for detecting annotation quality and identifying spammers
+- Integrated Python ML pipeline for model training and testing
+- Tech Stack: Spring Boot, React, MySQL, Spring Security, OAuth2, Thymeleaf, Python NLP
+- GitHub: github.com/oudala/API-REST-s-curis-e-de-gestion-de-t-ches-collaboratives
 
-Weather Application
-- Developed using React and OpenWeatherMap API
-- Features include location-based weather forecasts and interactive maps
-- GitHub: github.com/username/weather-app
+Persistent Memory-Efficient HashMap | 2025
+- Built optimized HashMap with custom serialization for persistent data storage
+- Improved performance: 28x faster saves (146,819ms→5,162ms), 1.8x faster loads
+- Reduced memory usage by 39% (492MB→299MB) while maintaining data integrity
+- Comprehensive JUnit testing for edge cases and reliability
+- Tech Stack: Java, JUnit, VisualVM, Custom Serialization, Profiling
+- GitHub: github.com/oudala/memorymap
 
-Task Management System
-- Created with Django and PostgreSQL
-- Includes user roles, task assignment, and progress tracking
-- GitHub: github.com/username/task-manager
+MyORM – Java ORM Library | 2025
+- Developed lightweight ORM with annotation-based mapping and ACID support
+- Implemented dynamic reflection-based mapping and CRUD operations
+- Added Caffeine caching and multi-database support (MySQL, PostgreSQL, SQLite)
+- Published as Maven-compatible library on GitHub
+- Tech Stack: Java, Reflection, JDBC, Annotations, Caffeine, Maven
+- GitHub: github.com/oudala/My-ORM
+
+Multimodal Store Management | 2024
+- Created Flask-based system with image recognition and voice command capabilities
+- Implemented computer vision for product identification via photo uploads
+- Integrated speech-to-text for hands-free inventory management
+- Built responsive real-time interface with multimodal search
+- Tech Stack: Flask, Python, TensorFlow, JavaScript
+- GitHub: github.com/oudala/AI-Powered-Visual-and-Voice-Product-Search
+
+Invoices Management System | 2024
+- Developed comprehensive Laravel-based invoicing system
+- Implemented Breeze authentication and Spatie role-based access control
+- Built automated notifications and real-time data visualization
+- Created demo video showcasing system features
+- Tech Stack: Laravel, Spatie, Breeze, Laravel UI, Charts, Mailer
+- GitHub: github.com/oudala/invoices-management
           `,
         })
         break
@@ -212,17 +260,23 @@ Task Management System
 Professional Certifications
 ==========================
 
-AWS Certified Developer - Associate
-- Issued by Amazon Web Services
-- Date: June 2023
+Java SE 17 Developer (OCP 17)
+- Issued by Oracle
+- Date: 2024
+- Certification ID: OCP17-2024
+- Validates expertise in Java 17 core features and APIs
 
-React Developer Certification
-- Issued by Meta
-- Date: March 2023
+Java SE 11 Developer (OCP 11)
+- Issued by Oracle
+- Date: 2023
+- Certification ID: OCP11-2023
+- Demonstrates proficiency in Java 11 development
 
-MongoDB Certified Developer
-- Issued by MongoDB
-- Date: January 2023
+Oracle Cloud Infrastructure 2024 Foundations Associate
+- Issued by Oracle
+- Date: 2024
+- Certification ID: OCI-2024
+- Covers OCI core concepts, architecture, and services
           `,
         })
         break
@@ -233,10 +287,10 @@ MongoDB Certified Developer
 Contact Information
 =================
 
-Email: oulad.dahman.ilyass@example.com
-LinkedIn: linkedin.com/in/oulad-dahman-ilyass
-GitHub: github.com/oulad-dahman-ilyass
-Portfolio: ouladilyas.dev
+Email: ilyassouladdahman@gmail.com
+LinkedIn: https://www.linkedin.com/in/ilyassod/
+GitHub: https://github.com/oudala
+Portfolio: ilyassouladdahman.vercel.app
           `,
         })
         break
@@ -251,48 +305,77 @@ Portfolio: ouladilyas.dev
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="relative w-full max-w-3xl rounded-lg border border-neutral-200 bg-[#1a1a1a] p-4 text-white shadow-lg dark:border-neutral-800">
-        <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
-          <div className="flex space-x-2">
-            <div className="h-3 w-3 rounded-full bg-red-500"></div>
-            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-            <div className="h-3 w-3 rounded-full bg-green-500"></div>
-          </div>
-          <div className="text-sm text-neutral-400">CV Terminal</div>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="rounded p-1 text-neutral-400 hover:bg-neutral-800 hover:text-white"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        </div>
-        <div ref={terminalRef} className="custom-scrollbar h-96 overflow-y-auto py-4 font-mono text-sm">
-          {history.map((item, index) => (
-            <div key={index} className="mb-2">
-              {item.type === "input" ? (
-                <div className="flex">
-                  <span className="mr-2 text-green-400">$</span>
-                  <span>{item.content}</span>
-                </div>
-              ) : (
-                <div className="whitespace-pre-wrap text-neutral-300">{item.content}</div>
-              )}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.2 }}
+          className="fixed bottom-20 right-6 z-50 flex h-[500px] w-[400px] flex-col rounded-lg border border-black/20 bg-black/95 shadow-2xl backdrop-blur-sm"
+        >
+          {/* Terminal Header */}
+          <div className="flex items-center justify-between border-b border-white/10 bg-black/95 px-4 py-3">
+            <div className="flex items-center gap-2">
+              <div className="h-3 w-3 rounded-full bg-red-500/90 shadow-lg shadow-red-500/20"></div>
+              <div className="h-3 w-3 rounded-full bg-yellow-500/90 shadow-lg shadow-yellow-500/20"></div>
+              <div className="h-3 w-3 rounded-full bg-green-500/90 shadow-lg shadow-green-500/20"></div>
             </div>
-          ))}
-          <form onSubmit={handleSubmit} className="flex">
-            <span className="mr-2 text-green-400">$</span>
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="w-full bg-transparent outline-none"
-              autoFocus
-            />
-          </form>
-        </div>
-      </div>
-    </div>
+            <div className="absolute left-1/2 top-3 -translate-x-1/2 text-sm font-medium text-white/70">
+              Terminal
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="rounded p-1 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              aria-label="Close terminal"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Terminal Content */}
+          <div
+            ref={terminalRef}
+            className="custom-scrollbar flex-1 overflow-y-auto overflow-x-hidden p-4 font-mono text-sm leading-6 text-white/90"
+          >
+            {history.map((item, index) => (
+              <div
+                key={index}
+                className={`mb-3 last:mb-1 ${
+                  item.type === "output" ? "animate-fade-in" : ""
+                }`}
+              >
+                {item.type === "input" ? (
+                  <div className="flex items-center">
+                    <span className="mr-2 text-green-400">❯</span>
+                    <span className="text-white">{item.content}</span>
+                  </div>
+                ) : (
+                  <div className="whitespace-pre-wrap text-white/90 [&>*:first-child]:mt-0">
+                    {item.content}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Input Area */}
+          <div className="border-t border-white/10 bg-black/95 px-4 py-3">
+            <form onSubmit={handleSubmit} className="flex items-center">
+              <span className="mr-2 text-green-400">❯</span>
+              <input
+                ref={inputRef}
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                className="flex-1 bg-transparent text-white caret-green-400 outline-none placeholder:text-white/20 focus:outline-none"
+                placeholder="Type a command (try 'help')..."
+                autoFocus
+              />
+            </form>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }

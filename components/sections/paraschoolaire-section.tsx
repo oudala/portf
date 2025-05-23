@@ -14,64 +14,127 @@ type MemoryItem = {
 
 const memories: MemoryItem[] = [
   {
-    id: 1,
-    title: "Hackathon Champion",
-    description: "Led a team to victory in the national coding hackathon.",
+    id: 10,
+    title: "Bureau enactus ensah",
+    description: "Memories from when I was president of Enactus Club in the year 2025",
+    year: "2025",
+    image: "/image/memories/1.jpg",
+  },
+  {
+    id: 11,
+    title: "Formation design thinking",
+    description: "Memories from when I was the coach of the design thinking workshop in 2025.",
+    year: "2025",
+    image: "/image/memories/2.jpg",
+  },
+  {
+    id: 12,
+    title: "Formation BMC",
+    description: "Memories from when I was the coach of the BMC Formation in 2025.",
+    year: "2025",
+    image: "/image/memories/3.jpg",
+  },
+  {
+    id: 13,
+    title: "Workshop Design Thinking and BMC",
+    description: "Memories from when I was the coach of the Workshop in 2025.",
+    year: "2025",
+    image: "/image/memories/4.jpg",
+  },
+  {
+    id: 14,
+    title: "BootCamp Morocco Water Race",
+    description: "Memories from when I participated in the BootCamp Morocco Water Race in 2025.",
+    year: "2025",
+    image: "/image/memories/5.webp",
+  },
+  {
+    id: 15,
+    title: "Team building",
+    description: "memories team building 2024",
+    year: "2024",
+    image: "/image/memories/6.jpg",
+  },
+  {
+    id: 16,
+    title: "Enactus EnsaH",
+    description: "Memories from when I was the president of Enactus EnsaH in 2024.",
+    year: "2024",
+    image: "/image/memories/7.jpg",
+  },
+  {
+    id: 17,
+    title: "Formation Public Speaking in TGD Club",
+    description: "Memories from when I was the coach of the Public Speaking Formation in TGD Club in 2023.",
     year: "2023",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/image/memories/8.webp",
   },
   {
-    id: 2,
-    title: "Student Council",
-    description: "Elected as president of the computer science student council.",
+    id: 18,
+    title: "Tech Experience",
+    description: "Memories from when I was part of the organizing team for a major tech event in Northern Morocco in 2023.",
+    year: "2023",
+    image: "/image/memories/9.jpg",
+  },
+  {
+    id: 19,
+    title: "Enactus",
+    description: "Members of club nactus 2023",
+    year: "2023",
+    image: "/image/memories/10.jpg",
+  },
+  {
+    id: 20,
+    title: "MO9AWALA TALK",
+    description: "Memories from when I was part of the organizing team for a major entrepreneurial event in Hociema in 2022.",
     year: "2022",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/image/memories/11.jpg",
   },
   {
-    id: 3,
-    title: "Robotics Competition",
-    description: "Designed an autonomous robot that won second place nationally.",
+    id: 21,
+    title: "CHESS CLUB",
+    description: "Memories from when I was a member of the chess club team.",
+    year: "2021",
+    image: "/image/memories/12.jpg",
+  },
+  {
+    id: 22,
+    title: "CHESS CLUB",
+    description: "Memories from when I was a member of the chess club team. also in 2023",
     year: "2022",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/image/memories/13.webp",
   },
   {
-    id: 4,
-    title: "Volunteer Teaching",
-    description: "Taught programming to underprivileged high school students.",
+    id: 23,
+    title: "Deplacement a Tanger",
+    description: "Memories when i was in tanger with the Club Sport team in event ENSA CUP.",
+    year: "2022",
+    image: "/image/memories/14.webp",
+  },
+  {
+    id: 24,
+    title: "Table Rounde TGD Club",
+    description: "memories when i was a member of the TGD Club team in 2022.",
+    year: "2022",
+    image: "/image/memories/15.jpg",
+  },
+  {
+    id: 25,
+    title: "Tech Experience",
+    description: "Memories from when i was a event treasurer for a major tech event in Northern Morocco in 2022.",
+    year: "",
+    image: "/image/memories/16.jpg",
+  },
+  {
+    id: 26,
+    title: "TGD Club",
+    description: "Memories from when I was a member of the TGD Club team in 2022.",
     year: "2021",
-    image: "/placeholder.svg?height=400&width=300",
-  },
-  {
-    id: 5,
-    title: "Research Presentation",
-    description: "Presented AI research at the undergraduate symposium.",
-    year: "2021",
-    image: "/placeholder.svg?height=400&width=300",
-  },
-  {
-    id: 6,
-    title: "Debate Team Captain",
-    description: "Led the university debate team to the regional finals.",
-    year: "2020",
-    image: "/placeholder.svg?height=400&width=300",
-  },
-  {
-    id: 7,
-    title: "Design Award",
-    description: "Received recognition for innovative UI/UX design.",
-    year: "2020",
-    image: "/placeholder.svg?height=400&width=300",
-  },
-  {
-    id: 8,
-    title: "Community Service",
-    description: "Organized tech workshops for local community centers.",
-    year: "2019",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/image/memories/17.webp",
   },
 ]
 
-export function ParascholaireSection() {
+export default function ParascholaireSection() {
   const ref = useRef(null)
   const carouselRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
@@ -183,7 +246,7 @@ export function ParascholaireSection() {
               startIndex === 0 ? "opacity-50" : "opacity-100"
             }`}
             disabled={startIndex === 0}
-            aria-label="Previous memories"
+            aria-label="Previous memories/"
           >
             <ChevronLeft size={24} />
           </button>
@@ -194,7 +257,7 @@ export function ParascholaireSection() {
               startIndex >= memories.length - visibleItems ? "opacity-50" : "opacity-100"
             }`}
             disabled={startIndex >= memories.length - visibleItems}
-            aria-label="Next memories"
+            aria-label="Next memories/"
           >
             <ChevronRight size={24} />
           </button>
@@ -217,3 +280,5 @@ export function ParascholaireSection() {
     </section>
   )
 }
+
+export { ParascholaireSection }

@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
-  content: [
+  darkMode: ["class"],      content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
@@ -17,6 +16,35 @@ module.exports = {
       },
     },
     extend: {
+      animation: {
+        'fade-in': 'fadeIn 0.2s ease-out',
+        'shine': 'shine 1.5s infinite',
+        'pulse-subtle': 'pulse-subtle 2s infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        shine: {
+          '0%': { 
+            background: 'linear-gradient(45deg, transparent 0%, transparent 100%)',
+            transform: 'translateX(-100%)'
+          },
+          '50%': { 
+            background: 'linear-gradient(45deg, rgba(255,255,255,0.25) 0%, transparent 100%)',
+            transform: 'translateX(100%)'
+          },
+          '100%': { 
+            background: 'linear-gradient(45deg, transparent 0%, transparent 100%)',
+            transform: 'translateX(100%)'
+          }
+        },
+        'pulse-subtle': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' }
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
