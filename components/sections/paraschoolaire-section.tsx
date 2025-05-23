@@ -161,7 +161,7 @@ export default function ParascholaireSection() {
         transition={{ duration: 0.5 }}
         className="mb-12"
       >
-        <h2 className="text-3xl font-bold">Paraschoolaire</h2>
+        <h2 className="text-3xl font-bold">parascolaire</h2>
         <div className="mt-4 h-[2px] w-16 bg-black"></div>
       </motion.div>
 
