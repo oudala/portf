@@ -70,7 +70,7 @@ export function AboutSection() {
               <h3 className="mb-2 text-xl font-medium">Contact</h3>
               <ul className="space-y-1 text-sm">
                 <li>ilyassouladdahman@gmail.com</li>
-                <li>+216 26 414 569</li>
+                <li>+212 626 414 569</li>
                 <li>
                   <a href="https://linkedin.com/in/ilyassod" className="hover:underline">
                     linkedin.com/in/ilyassod
