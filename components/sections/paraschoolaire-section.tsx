@@ -14,6 +14,21 @@ type MemoryItem = {
 
 const memories: MemoryItem[] = [
   {
+    id: 1,
+    title: "End of Studies Project Defense",
+    description:
+      "Presented Oracle APM Session Diagnostics for the State Engineering Diploma in Software Engineering.",
+    year: "2026",
+    image: "/image/events/oracle-apm-defense.png",
+  },
+  {
+    id: 2,
+    title: "Oracle APEX Hackathon Top 3",
+    description: "Participated in the Oracle APEX Hackathon and finished among the top 3 groups.",
+    year: "2026",
+    image: "/image/events/oracle-apex-hackathon-top-3.jpeg",
+  },
+  {
     id: 10,
     title: "Bureau enactus ensah",
     description: "Memories from when I was president of Enactus Club in the year 2025",
@@ -161,7 +176,7 @@ export default function ParascholaireSection() {
         transition={{ duration: 0.5 }}
         className="mb-12"
       >
-        <h2 className="text-3xl font-bold">parascolaire</h2>
+        <h2 className="text-3xl font-bold">Events & Leadership</h2>
         <div className="mt-4 h-[2px] w-16 bg-black"></div>
       </motion.div>
 
@@ -172,9 +187,8 @@ export default function ParascholaireSection() {
       >
         <div className="mb-10">
           <p className="text-lg">
-            Beyond academic pursuits, I've embraced leadership roles and competitive challenges that have shaped my
-            character and vision. These experiences have taught me the value of collaboration, resilience, and creative
-            problem-solving.
+            Beyond engineering work, I've embraced leadership roles, public presentations, and competitive challenges
+            that shaped my collaboration, resilience, and creative problem-solving.
           </p>
         </div>
 

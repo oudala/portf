@@ -30,8 +30,8 @@ export function JapaneseWaveHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col"
           >
-            <span className="text-sm font-medium uppercase tracking-wider text-[#1a1a1a]">Computer</span>
-            <span className="text-sm font-medium uppercase tracking-wider text-[#1a1a1a]">Science</span>
+            <span className="text-sm font-medium uppercase tracking-wider text-[#1a1a1a]">Software</span>
+            <span className="text-sm font-medium uppercase tracking-wider text-[#1a1a1a]">Engineer</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -71,7 +71,15 @@ export function JapaneseWaveHero() {
           transition={{ duration: 1, delay: 1.2 }}
           className="mt-4 text-2xl font-medium sm:text-3xl md:text-4xl"
         >
-          2025
+          2026
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.35 }}
+          className="mt-2 text-sm font-medium uppercase tracking-wider text-black/70 sm:text-base"
+        >
+          Research Assistant at Oracle
         </motion.p>
       </div>
 

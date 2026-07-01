@@ -65,7 +65,7 @@ export function ContactSection() {
             </div>
             <div>
               <h4 className="text-sm font-medium uppercase">Location</h4>
-              <p className="text-black/70">Salé | Al Hoceima, Morocco</p>
+              <p className="text-black/70">Casablanca, Morocco</p>
             </div>
             <div>
               <h4 className="text-sm font-medium uppercase">Social</h4>

@@ -53,18 +53,18 @@ export function AboutSection() {
           <h2 className="mb-6 text-3xl font-bold">About Me</h2>
           <div className="mb-6 h-[2px] w-16 bg-black"></div>
           <p className="mb-6 text-lg">
-            Dynamic computer science student passionate about innovation and software engineering. Seeking to leverage
-            skills in Java and microservices to build scalable and impactful solutions.
+            Software engineer and research assistant at Oracle, focused on observability, backend systems, cloud
+            platforms, and production-ready web applications.
           </p>
           <p className="mb-8 text-lg">
-            Experienced in leadership through Enactus club activities, focusing on entrepreneurship and sustainable
-            development.
+            I build scalable and impactful solutions across Java, Python, Next.js, microservices, automation, and cloud
+            infrastructure, with leadership experience through Enactus and technology communities.
           </p>
 
           <div className="grid grid-cols-2 gap-8">
             <div>
               <h3 className="mb-2 text-xl font-medium">Location</h3>
-              <p className="text-sm">Salé | Al Hoceima</p>
+              <p className="text-sm">Casablanca</p>
             </div>
             <div>
               <h3 className="mb-2 text-xl font-medium">Contact</h3>

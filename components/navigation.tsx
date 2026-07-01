@@ -49,6 +49,11 @@ export function Navigation() {
                 </Link>
               </li>
               <li>
+                <Link href="#professional-work" className="text-sm uppercase tracking-wider hover:underline">
+                  Work
+                </Link>
+              </li>
+              <li>
                 <Link href="#skills" className="text-sm uppercase tracking-wider hover:underline">
                   Skills
                 </Link>
@@ -125,6 +130,15 @@ export function Navigation() {
                       onClick={() => setIsOpen(false)}
                     >
                       Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#professional-work"
+                      className="text-3xl font-medium uppercase tracking-wider"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Work
                     </Link>
                   </li>
                   <li>

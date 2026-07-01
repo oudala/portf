@@ -93,7 +93,7 @@ CV Sections:
         content: `
 CV Overview - Oulad Dahman Ilyass
 =================================
-Computer Science Student & Software Engineer
+Software Engineer & Research Assistant at Oracle
 
 Use 'cat <section>' to view details of each section:
 - experience: Work experience
@@ -124,12 +124,18 @@ Use 'cat <section>' to view details of each section:
 Work Experience
 ==============
 
-Java Developer Intern | Anobix
-Summer 2024
-- Developed and enhanced enterprise Java applications using Spring Framework
-- Implemented RESTful APIs and microservices architecture
-- Worked with Spring Boot, JPA/Hibernate for database operations
-- Participated in Agile development process and daily stand-ups
+Oracle - APM Session Diagnostics Engineering Intern (PFE Internship)
+2026 - Present
+- Contributed to Oracle APM session diagnostics and observability features
+- Focused on user session analytics, troubleshooting workflows, and platform diagnostics
+- Worked on backend improvements, ticket resolution, visualization systems, and enterprise monitoring support
+- Tech Stack: Java, Python, Oracle Cloud, REST APIs, Git, CI/CD, Jira, Slack, Oracle APM, Telemetry, Unit testing, Confluence, DevOps Portal
+
+Backend & Cloud Engineering Intern | Univade LCNC Platform
+Feb 2025 - Jun 2025
+- Worked on a Low-Code/No-Code platform integrating backend services, automation pipelines, and cloud deployments
+- Developed microservices, CI/CD workflows, and infrastructure automation across AWS and Azure
+- Tech Stack: Java, Python, Spring Boot, Docker, AWS, Azure, Terraform, GitHub Actions, Airflow
 
 `,
         })
@@ -143,7 +149,7 @@ Education
 
 Engineering Degree in Computer Science Engineering
 National School of Applied Science, Al Hoceima
-2023 – Present
+2023 – 2026
 - Specializing in Software Engineering and Distributed Systems
 - Advanced coursework in Software Architecture, Cloud Computing, and AI
 - Research focus on Machine Learning and Data Engineering
@@ -152,7 +158,7 @@ Preparatory Classes to Engineering Degree
 National School of Applied Science, Al Hoceima
 2021 – 2023
 - Intensive study in Mathematics, Physics, and Computer Science
-- Selected among top students for engineering program
+- Selected among top candidates for engineering program
 - Foundation in algorithmic thinking and programming basics
 
 Mathematics and Information Science (SMIA)
@@ -210,6 +216,17 @@ Other:
           content: `
  Portfolio Projects
 =================
+
+Crescendo Baby Music Management Platform | 2025 - Present
+- Developed a production-ready full-stack platform for children's music classes, bookings, subscriptions, attendance, payments, waitlists, scheduling, and admin operations
+- Implemented secure authentication, QR attendance tracking, WhatsApp notifications, analytics dashboards, and automation workflows
+- Tech Stack: Next.js, React, TypeScript, Prisma, PostgreSQL, Supabase, Tailwind CSS, Twilio WhatsApp API, Cloudinary, Jest, Playwright, Vercel
+- Live: booking.crescendobabymusic.com
+
+AWS Cost Monitoring System | 2025
+- Built an intelligent cloud surveillance system with anomaly detection and automated Slack alerts
+- Used a serverless architecture for cloud cost monitoring and incident visibility
+- Tech Stack: AWS Lambda, S3, EventBridge, Python, Next.js, TypeScript, Tailwind CSS, Gemini AI
 
 NLP Annotation Platform | 2025
 - Developed a collaborative text annotation platform using Spring Boot and React with OAuth2
@@ -287,6 +304,7 @@ Oracle Cloud Infrastructure 2024 Foundations Associate
 Contact Information
 =================
 
+Location: Casablanca, Morocco
 Email: ilyassouladdahman@gmail.com
 LinkedIn: https://www.linkedin.com/in/ilyassod/
 GitHub: https://github.com/oudala

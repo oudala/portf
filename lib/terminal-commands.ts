@@ -279,21 +279,27 @@ function getCvSection(section: string): string {
     summary: `
 Oulad dahman ilyass
 ===================
-Computer Science Student
+Software Engineer
 
-Dynamic computer science student passionate about innovation and software engineering. Seeking to leverage skills in Java and microservices to build scalable and impactful solutions. Experienced in leadership through Enactus club activities, focusing on entrepreneurship and sustainable development.
+Software engineer and research assistant at Oracle, focused on observability, backend systems, cloud platforms, and production-ready web applications. Experienced across Java, Python, Next.js, microservices, automation, and cloud infrastructure.
     `,
 
     experience: `
 Experience
 ==========
-Leadership through Enactus club activities, focusing on entrepreneurship and sustainable development.
+Oracle - APM Session Diagnostics Engineering Intern (PFE Internship) | 2026 - Present
+Contributed to Oracle APM session diagnostics, observability, user session analytics, troubleshooting workflows, platform diagnostics, backend improvements, ticket resolution, visualization systems, and enterprise monitoring support.
+Technologies: Java, Python, Oracle Cloud, REST APIs, Git, CI/CD, Jira, Slack, Oracle APM, Telemetry, Unit testing, Confluence, DevOps Portal
+
+Backend & Cloud Engineering Intern | Univade LCNC Platform | Feb 2025 - Jun 2025
+Worked on a Low-Code/No-Code platform integrating backend services, automation pipelines, cloud deployments, microservices, CI/CD workflows, and infrastructure automation across AWS and Azure.
+Technologies: Java, Python, Spring Boot, Docker, AWS, Azure, Terraform, GitHub Actions, Airflow
     `,
 
     education: `
 Education
 =========
-Engineering Degree in Computer Science Engineering | National School of Applied Science | 2023 - Present | Salé | Al Hoceima
+State Engineering Diploma in Software Engineering | National School of Applied Science | 2023 - 2026 | Al Hoceima
 Preparatory Classes to Engineering Degree | National School of Applied Science | 2021 - 2023 | Al Hoceima
     `,
 
@@ -316,11 +322,13 @@ Oracle Cloud Infrastructure 2024 Foundations Associate
     projects: `
 Projects
 ========
-1. Multimodal Store Management System
-2. Feature-Rich Invoices Management System
-3. MyORM - Lightweight Java ORM Library
+1. Crescendo Baby Music Management Platform
+2. AWS Cost Monitoring System
+3. NLP Annotation Platform
 4. Persistent, Memory-Efficient Java HashMap
-5. NLP Annotation Platform
+5. MyORM - Lightweight Java ORM Library
+6. Multimodal Store Management System
+7. Feature-Rich Invoices Management System
 
 For details on a specific project, type: projects <project-name>
 Example: projects multimodal-store-management-system
@@ -329,7 +337,7 @@ Example: projects multimodal-store-management-system
     contact: `
 Contact Information
 ==================
-Salé | Al Hoceima
+Casablanca, Morocco
 Email: ilyassouladdahman@gmail.com
 Phone: 0626-414569
 LinkedIn: linkedin.com/in/ilyassod

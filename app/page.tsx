@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { JapaneseWaveHero } from "@/components/japanese-wave-hero"
 import { AboutSection } from "@/components/sections/about-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
+import { ProfessionalWorkSection } from "@/components/sections/professional-work-section"
 import { SkillsSection } from "@/components/sections/skills-section"
 import { EducationSection } from "@/components/sections/education-section"
 import { CertificationsSection } from "@/components/sections/certifications-section"
@@ -13,11 +14,11 @@ import { SectionDivider } from "@/components/section-divider"
 import { CVTerminalButton } from "@/components/cv-terminal-button"
 import { Terminal } from "@/components/terminal/terminal"
 import { ChallengesButton } from "@/components/challenges-button"
-import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Oulad Dahman Ilyass | Software Engineer Portfolio",
-  description: "Portfolio showcasing the work and skills of Oulad Dahman Ilyass, a Computer Science Student.",
+  description:
+    "Portfolio showcasing the work and skills of Oulad Dahman Ilyass, a software engineer and research assistant at Oracle.",
 }
 
 export default function HomePage() {
@@ -37,6 +38,8 @@ export default function HomePage() {
       <SectionDivider />
 
       <div className="container mx-auto px-4">
+        <ProfessionalWorkSection />
+        <SectionDivider />
         <SkillsSection />
         <SectionDivider />
         <EducationSection />
