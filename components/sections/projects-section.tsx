@@ -70,7 +70,9 @@ const projects: Project[] = [
     title: "Private Cloud with Apache CloudStack",
     description:
       "A full private cloud deployment with zones, pods, clusters, storage, virtual networking, VM provisioning, and monitoring.",
-    image: "/image/project/store.png",
+    image: "/image/project/cloudstack-logo.png",
+    imageFit: "contain",
+    imagePosition: "center",
     year: "2025",
     technologies: ["CloudStack", "KVM", "Linux", "Networking", "Prometheus", "Grafana", "Terraform", "Bash"],
     bulletPoints: [
