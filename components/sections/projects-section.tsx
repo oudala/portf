@@ -173,13 +173,16 @@ const projects: Project[] = [
 ]
 
 const accentColors = ["#a34730", "#2f6f73", "#6b5d95", "#31636f", "#8a6a25", "#4f6f45", "#9c4f65"]
+const projectGroups = Array.from({ length: Math.ceil(projects.length / 3) }, (_, index) =>
+  projects.slice(index * 3, index * 3 + 3),
+)
 
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const viewportRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const [scrollDistance, setScrollDistance] = useState(0)
-  const [sectionHeight, setSectionHeight] = useState("220vh")
+  const [sectionHeight, setSectionHeight] = useState("300vh")
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -195,7 +198,7 @@ export function ProjectsSection() {
       const distance = Math.max(0, trackWidth - viewportWidth)
 
       setScrollDistance(distance)
-      setSectionHeight(`${Math.max(window.innerHeight * 1.25, distance + window.innerHeight * 0.75)}px`)
+      setSectionHeight(`${Math.max(window.innerHeight * projectGroups.length, distance + window.innerHeight)}px`)
     }
 
     updateMeasurements()
@@ -220,10 +223,23 @@ export function ProjectsSection() {
           <motion.div
             ref={trackRef}
             style={{ x }}
-            className="grid h-full auto-cols-[minmax(315px,345px)] grid-flow-col grid-rows-1 gap-4 px-4 py-2 will-change-transform sm:auto-cols-[370px] sm:grid-rows-2 md:auto-cols-[405px] md:px-8 lg:auto-cols-[430px] lg:grid-rows-3 lg:px-12 xl:auto-cols-[455px]"
+            className="flex h-full will-change-transform"
           >
-            {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+            {projectGroups.map((group, groupIndex) => (
+              <div
+                key={groupIndex}
+                className="flex min-w-full items-center px-4 py-2 md:px-8 lg:px-12"
+              >
+                <div className="mx-auto grid h-full max-h-[560px] w-full max-w-7xl grid-rows-3 gap-5 md:grid-cols-3 md:grid-rows-1">
+                  {group.map((project, projectIndex) => (
+                    <ProjectCard
+                      key={project.id}
+                      project={project}
+                      index={groupIndex * 3 + projectIndex}
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -239,17 +255,17 @@ export function ProjectsSection() {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const visibleTech = project.technologies.slice(0, 3)
+  const visibleTech = project.technologies.slice(0, 5)
   const hiddenTechCount = project.technologies.length - visibleTech.length
   const accentColor = accentColors[index % accentColors.length]
-  const imageMode = project.imageFit === "contain" ? "object-contain p-2" : "object-cover"
+  const imageMode = project.imageFit === "contain" ? "object-contain p-4" : "object-cover"
 
   return (
     <article
-      className="group grid h-full min-h-0 grid-cols-[112px_1fr] overflow-hidden rounded-[6px] border border-black/10 bg-[#fffaf6] shadow-[0_12px_30px_rgba(0,0,0,0.10)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_38px_rgba(0,0,0,0.14)] sm:grid-cols-[126px_1fr] lg:grid-cols-[138px_1fr]"
+      className="group flex min-h-0 flex-col overflow-hidden rounded-[6px] border border-black/10 bg-[#fffaf6] shadow-[0_14px_35px_rgba(0,0,0,0.10)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_52px_rgba(0,0,0,0.14)]"
       style={{ "--project-accent": accentColor } as CSSProperties}
     >
-      <div className="relative min-h-0 overflow-hidden bg-black">
+      <div className="relative h-48 shrink-0 overflow-hidden bg-black xl:h-56">
         <Image
           src={project.image}
           alt={project.title}
@@ -257,33 +273,33 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           className={`${imageMode} opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100`}
           style={{ objectPosition: project.imagePosition ?? "center" }}
           unoptimized
-          sizes="(min-width: 1280px) 138px, (min-width: 640px) 126px, 112px"
+          sizes="(min-width: 1024px) 30vw, 92vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-        <div className="absolute left-3 top-3 rounded-full border border-white/30 bg-black/45 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
+        <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-black/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
           {String(index + 1).padStart(2, "0")}
         </div>
-        <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
-          <span className="rounded-full bg-[#f5f0e8] px-2.5 py-1 text-[11px] font-semibold text-black shadow-sm">
+        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-2">
+          <span className="rounded-full bg-[#f5f0e8] px-3 py-1 text-xs font-semibold text-black shadow-sm">
             {project.year}
           </span>
-          <span className="h-1.5 w-9 rounded-full bg-[var(--project-accent)]" />
+          <span className="h-1.5 w-11 rounded-full bg-[var(--project-accent)]" />
         </div>
       </div>
 
-      <div className="flex min-h-0 flex-col overflow-hidden p-3.5">
-        <h3 className="line-clamp-2 text-[15px] font-bold leading-tight text-black md:text-base">{project.title}</h3>
-        <p className="line-clamp-1 mt-2 text-xs leading-5 text-black/65">{project.description}</p>
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden p-5">
+        <h3 className="line-clamp-2 text-xl font-bold leading-tight text-black">{project.title}</h3>
+        <p className="line-clamp-2 mt-3 text-sm leading-6 text-black/65">{project.description}</p>
 
-        <div className="mt-auto pt-2.5">
-          <div className="flex flex-wrap gap-1">
+        <div className="mt-auto pt-5">
+          <div className="flex flex-wrap gap-1.5">
             {visibleTech.map((tech) => (
-              <span key={tech} className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-[10px] text-black/68">
+              <span key={tech} className="rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] text-black/68">
                 {tech}
               </span>
             ))}
             {hiddenTechCount > 0 && (
-              <span className="rounded-full border border-black/10 bg-black px-2 py-0.5 text-[10px] text-[#f5f0e8]">
+              <span className="rounded-full border border-black/10 bg-black px-2.5 py-1 text-[11px] text-[#f5f0e8]">
                 +{hiddenTechCount}
               </span>
             )}
@@ -294,10 +310,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex max-w-full items-center gap-1.5 self-start rounded-full bg-black px-3 py-1.5 text-xs font-semibold text-[#f5f0e8] transition-colors hover:bg-black/85"
+              className="mt-4 inline-flex max-w-full items-center gap-1.5 self-start rounded-full bg-black px-4 py-2 text-sm font-semibold text-[#f5f0e8] transition-colors hover:bg-black/85"
             >
               <span className="truncate">{project.linkLabel ?? "View project"}</span>
-              <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
+              <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             </a>
           )}
         </div>

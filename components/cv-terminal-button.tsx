@@ -35,11 +35,12 @@ Try it out! Start by typing 'ls' to see available sections.
   return (
     <motion.div
       className="group fixed bottom-6 right-20 z-40"
-      animate={{ y: [0, -3, 0] }}
-      transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+      animate={{ y: [0, -5, 0, 3, 0], rotate: [0, -4, 4, -2, 0], scale: [1, 1.04, 1] }}
+      transition={{ duration: 1.45, repeat: Infinity, ease: "easeInOut", delay: 0.12 }}
       whileHover={{ scale: 1.08, y: -4 }}
       whileTap={{ scale: 0.95 }}
     >
+      <span className="pointer-events-none absolute inset-[-6px] rounded-full border border-black/20 opacity-30 animate-ping" aria-hidden="true" />
       <Button
         variant="outline"
         size="icon"

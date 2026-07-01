@@ -11,6 +11,7 @@ type WorkItem = {
   period: string
   description: string
   image: string
+  imagePosition?: string
   accent: string
   technologies: string[]
   highlights: string[]
@@ -25,6 +26,7 @@ const workItems: WorkItem[] = [
     description:
       "Contributed to Oracle APM session diagnostics and observability features, focusing on user session analytics, troubleshooting workflows, and platform diagnostics.",
     image: "/image/events/oracle-apm-defense.png",
+    imagePosition: "center top",
     accent: "#c74634",
     technologies: [
       "Java",
@@ -94,6 +96,7 @@ export function ProfessionalWorkSection() {
                 alt={`${item.company} work`}
                 fill
                 className="object-cover opacity-90 transition duration-700 group-hover:scale-105"
+                style={{ objectPosition: item.imagePosition ?? "center" }}
                 unoptimized
                 sizes="(min-width: 1024px) 40vw, 100vw"
               />
