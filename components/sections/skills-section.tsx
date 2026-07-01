@@ -10,16 +10,36 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Languages",
-    skills: ["C++", "Java", "C#", "SQL/PLSQL", "JavaScript", "Python", "PHP"],
+    title: "Programming Languages",
+    skills: ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL", "PL/SQL"],
   },
   {
-    title: "Technologies",
-    skills: [".NET", "Networks", "NoSQL", "Linux", "Laravel", "Spring Boot", "React"],
+    title: "Cloud & DevOps",
+    skills: ["AWS", "Azure", "OCI", "Docker", "Kubernetes", "Terraform", "CI/CD", "GitHub Actions", "Jenkins"],
   },
   {
-    title: "Skills",
-    skills: ["Leadership", "Chess", "Problem Solving (extensive experience with Codeforces and LeetCode challenges)" , "video editing"],
+    title: "Frontend",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Radix UI"],
+  },
+  {
+    title: "Backend",
+    skills: ["Spring Boot", "Flask", "REST APIs", "Microservices", "Distributed Systems"],
+  },
+  {
+    title: "Databases",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
+  },
+  {
+    title: "Testing & Monitoring",
+    skills: ["Pytest", "Selenium", "SonarQube", "Prometheus", "Grafana", "Oracle APM"],
+  },
+  {
+    title: "Tools & Collaboration",
+    skills: ["Git", "Slack", "Jira", "Bitbucket", "Linux", "VS Code", "IntelliJ", "Maven"],
+  },
+  {
+    title: "Specialization",
+    skills: ["System Design", "Performance Optimization", "Observability", "Cloud-Native Architecture"],
   },
 ]
 
@@ -65,16 +85,26 @@ export function SkillsSection() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid gap-8 md:grid-cols-3"
+        className="grid gap-4 md:grid-cols-2 lg:grid-cols-4"
       >
-        {skillCategories.map((category) => (
-          <motion.div key={category.title} variants={itemVariants} className="border border-black p-6">
-            <h3 className="mb-4 text-xl font-medium">{category.title}</h3>
-            <ul className="space-y-2">
+        {skillCategories.map((category, index) => (
+          <motion.div
+            key={category.title}
+            variants={itemVariants}
+            className="rounded-[6px] border border-black/10 bg-[#fffaf6] p-5 shadow-[0_12px_30px_rgba(0,0,0,0.07)]"
+          >
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h3 className="text-base font-bold">{category.title}</h3>
+              <span className="rounded-full bg-black px-2 py-0.5 text-[10px] font-semibold text-[#f5f0e8]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <ul className="flex flex-wrap gap-1.5">
               {category.skills.map((skill) => (
-                <li key={skill} className="flex items-center">
-                  <div className="mr-2 h-1 w-1 bg-black"></div>
-                  <span>{skill}</span>
+                <li key={skill}>
+                  <span className="inline-flex rounded-full border border-black/10 bg-white px-2.5 py-1 text-xs text-black/72">
+                    {skill}
+                  </span>
                 </li>
               ))}
             </ul>

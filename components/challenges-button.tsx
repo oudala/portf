@@ -63,15 +63,26 @@ export function ChallengesButton() {
 
   return (
     <>
-      <Button
-        variant="outline"
-        size="icon"
-        className="fixed bottom-6 right-6 z-40 h-12 w-12 rounded-full border-primary/20 bg-background/50 backdrop-blur-md"
-        onClick={() => setIsOpen(true)}
-        aria-label="Open Coding Challenges"
+      <motion.div
+        className="group fixed bottom-6 right-6 z-40"
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.08, y: -4 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <Code className="h-5 w-5" />
-      </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-12 w-12 rounded-full border-black/10 bg-[#fffaf6]/85 shadow-[0_12px_30px_rgba(0,0,0,0.12)] backdrop-blur-md transition-colors hover:bg-black hover:text-[#f5f0e8]"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open Coding Challenges"
+        >
+          <Code className="h-5 w-5" />
+        </Button>
+        <span className="pointer-events-none absolute bottom-14 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black px-3 py-1 text-xs font-semibold text-[#f5f0e8] opacity-0 shadow-lg transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+          Challenges
+        </span>
+      </motion.div>
 
       <AnimatePresence>
         {isOpen && (

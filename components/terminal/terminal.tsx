@@ -149,7 +149,7 @@ Education
 
 Engineering Degree in Computer Science Engineering
 National School of Applied Science, Al Hoceima
-2023 – 2026
+2023 – Jun 2026
 - Specializing in Software Engineering and Distributed Systems
 - Advanced coursework in Software Architecture, Cloud Computing, and AI
 - Research focus on Machine Learning and Data Engineering
@@ -185,28 +185,36 @@ Technical Skills
 ===============
 
 Programming Languages:
-- JavaScript/TypeScript
 - Python
 - Java
 - C++
+- JavaScript/TypeScript
+- SQL/PLSQL
 
-Frontend:
-- React.js
-- Next.js
-- HTML/CSS
-- Tailwind CSS
+Cloud & DevOps:
+- AWS, Azure, OCI
+- Docker, Kubernetes, Terraform
+- CI/CD, GitHub Actions, Jenkins
 
 Backend:
-- Node.js
-- Express
-- Django
 - Spring Boot
+- Flask
+- REST APIs
+- Microservices
 
-Other:
-- Git/GitHub
-- Docker
-- AWS
-- CI/CD
+Frontend:
+- Next.js, React, TypeScript
+- Tailwind CSS, Radix UI
+
+Databases:
+- MySQL, PostgreSQL, MongoDB, Redis
+
+Testing & Monitoring:
+- Pytest, Selenium, SonarQube
+- Prometheus, Grafana, Oracle APM
+
+Tools & Collaboration:
+- Git, Slack, Jira, Bitbucket, Linux, VS Code, IntelliJ, Maven
           `,
         })
         break

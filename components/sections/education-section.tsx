@@ -15,7 +15,7 @@ const educationList: Education[] = [
     degree: "Engineering Degree in Computer Science Engineering",
     institution: "National School of Applied Science",
     location: "Al Hoceima",
-    period: "2023 – Present",
+    period: "2023 – Jun 2026",
   },
   {
     degree: "Preparatory Classes to Engineering Degree",
@@ -82,7 +82,11 @@ export function EducationSection() {
         className="space-y-8"
       >
         {educationList.map((education, index) => (
-          <motion.div key={index} variants={itemVariants} className="border border-black p-6">
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="rounded-[6px] border border-black/10 bg-[#fffaf6] p-6 shadow-[0_12px_30px_rgba(0,0,0,0.07)]"
+          >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <div>
                 <h3 className="text-xl font-medium">{education.degree}</h3>
@@ -90,7 +94,9 @@ export function EducationSection() {
                   {education.institution}, {education.location}
                 </p>
               </div>
-              <div className="mt-2 border border-black px-3 py-1 text-sm md:mt-0">{education.period}</div>
+              <div className="mt-2 rounded-full border border-black/10 bg-white px-3 py-1 text-sm font-semibold md:mt-0">
+                {education.period}
+              </div>
             </div>
           </motion.div>
         ))}

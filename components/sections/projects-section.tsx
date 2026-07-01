@@ -10,6 +10,8 @@ interface Project {
   title: string
   description: string
   image: string
+  imageFit?: "cover" | "contain"
+  imagePosition?: string
   year: string
   technologies: string[]
   bulletPoints: string[]
@@ -23,7 +25,8 @@ const projects: Project[] = [
     title: "Crescendo Baby Music Management Platform",
     description:
       "A production-ready full-stack platform for managing children's music classes, bookings, subscriptions, attendance, payments, waitlists, scheduling, and admin operations.",
-    image: "/image/project/ChatGPT Image 23 mai 2025, 16_19_33.png",
+    image: "/image/project/crescendo-website.png",
+    imagePosition: "center",
     year: "2025 - Present",
     technologies: [
       "Next.js",
@@ -52,13 +55,27 @@ const projects: Project[] = [
     title: "AWS Cost Monitoring System",
     description:
       "An intelligent cloud surveillance system with anomaly detection and automated Slack alerts for AWS cost monitoring.",
-    image: "/image/project/store.png",
+    image: "/image/project/aws-cost-architecture.png",
+    imageFit: "contain",
     year: "2025",
     technologies: ["AWS Lambda", "S3", "EventBridge", "Python", "Next.js", "TypeScript", "Tailwind CSS", "Gemini AI"],
     bulletPoints: [
       "Built a serverless architecture to monitor AWS cost patterns and flag suspicious spending changes.",
       "Implemented anomaly detection and automated Slack alerts for fast incident visibility.",
       "Connected cloud telemetry with a lightweight Next.js interface for cost surveillance and review.",
+    ],
+  },
+  {
+    id: "cloudstack-private-cloud",
+    title: "Private Cloud with Apache CloudStack",
+    description:
+      "A full private cloud deployment with zones, pods, clusters, storage, virtual networking, VM provisioning, and monitoring.",
+    image: "/image/project/store.png",
+    year: "2025",
+    technologies: ["CloudStack", "KVM", "Linux", "Networking", "Prometheus", "Grafana", "Terraform", "Bash"],
+    bulletPoints: [
+      "Deployed Apache CloudStack infrastructure with storage, virtual networking, and automated VM provisioning.",
+      "Added monitoring workflows with Prometheus and Grafana for cloud operations visibility.",
     ],
   },
   {
@@ -79,14 +96,14 @@ const projects: Project[] = [
   },
   {
     id: "memory-hashmap",
-    title: "Persistent, Memory-Efficient Java HashMap",
+    title: "High-Performance Persistent HashMap",
     description: "A custom MemoryHashMap with optimized serialization and deserialization.",
     image: "/image/project/hashmap.jpeg",
     year: "2025",
     technologies: ["Java", "JUnit", "VisualVM", "Custom Serialization", "Profiling", "Memory Optimization"],
     bulletPoints: [
       "Built a custom MemoryHashMap with optimized serialization and deserialization to overcome limitations of standard Java HashMaps for persistent data storage.",
-      "Used VisualVM for performance profiling to identify and eliminate bottlenecks, improving save times by 28x (146,819ms→5,162ms) and load times by 1.8x (110,372ms→60,680ms).",
+      "Used VisualVM and JMH to identify bottlenecks, improving serialization performance by 28x.",
       "Reduced memory consumption by 39% (492MB→299MB heap usage) while maintaining full data integrity.",
       "Implemented comprehensive edge case testing and verification using JUnit to ensure reliability across various usage scenarios.",
     ],
@@ -110,6 +127,21 @@ const projects: Project[] = [
     linkLabel: "GitHub",
   },
   {
+    id: "threadpool-executor",
+    title: "Custom ThreadPool Executor",
+    description:
+      "A custom Java thread pool executor with blocking queues and adjustable execution policies for controlled workloads.",
+    image: "/image/project/hashmap.jpeg",
+    year: "2024",
+    technologies: ["Java", "Concurrency", "Multithreading", "Blocking Queue", "Performance"],
+    bulletPoints: [
+      "Implemented a custom executor to improve workload control and concurrent task execution behavior.",
+      "Designed adjustable execution policies and queue handling for performance-focused Java systems.",
+    ],
+    url: "https://github.com/oudala",
+    linkLabel: "GitHub",
+  },
+  {
     id: "multimodal-store",
     title: "Multimodal Store Management System",
     description: "A Flask-based store management system with advanced search capabilities.",
@@ -126,20 +158,17 @@ const projects: Project[] = [
     linkLabel: "GitHub",
   },
   {
-    id: "invoices-management",
-    title: "Feature-Rich Invoices Management System",
-    description: "A comprehensive invoices management system using Laravel framework.",
+    id: "mamafood",
+    title: "MamaFood Traditional Food Delivery Platform",
+    description:
+      "A social-impact food delivery platform connecting local traditional food providers with customers and operational workflows.",
     image: "/image/project/books-paying-bills-make-instant@2x-1.png",
     year: "2024",
-    technologies: ["Laravel", "Spatie", "Breeze", "Laravel UI", "Laravel Charts", "Laravel Mailer", "Notifications"],
+    technologies: ["Flask", "Docker", "Plotly", "PostgreSQL", "Logistics", "Dashboards"],
     bulletPoints: [
-      "Developed a comprehensive invoices management system using Laravel framework with intuitive interface and robust functionality.",
-      "Implemented secure authentication with Laravel Breeze and advanced role-based access control using Laravel Spatie Permission.",
-      "Built automated notification system using Laravel Mailer and integrated real-time data visualization with Laravel Charts.",
-      "Created polished video presentation showcasing system functionality and features for client demonstrations.",
+      "Co-founded a platform focused on traditional food discovery, provider onboarding, and delivery operations.",
+      "Built workflows for local sellers, logistics tracking, and operational dashboards.",
     ],
-    url: "https://github.com/oudala/invoices-management",
-    linkLabel: "GitHub",
   },
 ]
 
@@ -150,7 +179,7 @@ export function ProjectsSection() {
   const viewportRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const [scrollDistance, setScrollDistance] = useState(0)
-  const [sectionHeight, setSectionHeight] = useState("320vh")
+  const [sectionHeight, setSectionHeight] = useState("220vh")
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -166,7 +195,7 @@ export function ProjectsSection() {
       const distance = Math.max(0, trackWidth - viewportWidth)
 
       setScrollDistance(distance)
-      setSectionHeight(`${Math.max(window.innerHeight * 1.35, distance + window.innerHeight * 0.85)}px`)
+      setSectionHeight(`${Math.max(window.innerHeight * 1.25, distance + window.innerHeight * 0.75)}px`)
     }
 
     updateMeasurements()
@@ -177,7 +206,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-[#f5f0e8] py-10 md:py-12">
-        <div className="container mx-auto mb-5 px-4 text-center md:mb-7">
+        <div className="container mx-auto mb-4 px-4 text-center md:mb-5">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/50">Selected builds</p>
           <h2 className="mt-3 text-3xl font-bold md:text-4xl">Projects</h2>
           <div className="mx-auto mt-4 h-[2px] w-24 bg-black"></div>
@@ -191,7 +220,7 @@ export function ProjectsSection() {
           <motion.div
             ref={trackRef}
             style={{ x }}
-            className="flex h-full items-center gap-4 px-4 pb-2 will-change-transform md:gap-5 md:px-8 lg:gap-6 lg:px-12"
+            className="grid h-full auto-cols-[minmax(315px,345px)] grid-flow-col grid-rows-1 gap-4 px-4 py-2 will-change-transform sm:auto-cols-[370px] sm:grid-rows-2 md:auto-cols-[405px] md:px-8 lg:auto-cols-[430px] lg:grid-rows-3 lg:px-12 xl:auto-cols-[455px]"
           >
             {projects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
@@ -210,58 +239,51 @@ export function ProjectsSection() {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const visibleTech = project.technologies.slice(0, 7)
+  const visibleTech = project.technologies.slice(0, 3)
   const hiddenTechCount = project.technologies.length - visibleTech.length
   const accentColor = accentColors[index % accentColors.length]
+  const imageMode = project.imageFit === "contain" ? "object-contain p-2" : "object-cover"
 
   return (
     <article
-      className="group flex h-[clamp(455px,61vh,560px)] min-w-[min(84vw,350px)] flex-col overflow-hidden rounded-[6px] border border-black/10 bg-[#fffaf6] shadow-[0_18px_45px_rgba(0,0,0,0.10)] ring-1 ring-white/60 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.14)] sm:min-w-[380px] md:min-w-[420px] lg:min-w-[455px] xl:min-w-[480px]"
+      className="group grid h-full min-h-0 grid-cols-[112px_1fr] overflow-hidden rounded-[6px] border border-black/10 bg-[#fffaf6] shadow-[0_12px_30px_rgba(0,0,0,0.10)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_38px_rgba(0,0,0,0.14)] sm:grid-cols-[126px_1fr] lg:grid-cols-[138px_1fr]"
       style={{ "--project-accent": accentColor } as CSSProperties}
     >
-      <div className="relative h-40 shrink-0 overflow-hidden bg-black sm:h-44 lg:h-48">
+      <div className="relative min-h-0 overflow-hidden bg-black">
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-cover opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
+          className={`${imageMode} opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100`}
+          style={{ objectPosition: project.imagePosition ?? "center" }}
           unoptimized
-          sizes="(min-width: 1280px) 480px, (min-width: 1024px) 455px, (min-width: 768px) 420px, 84vw"
+          sizes="(min-width: 1280px) 138px, (min-width: 640px) 126px, 112px"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-        <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-black/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+        <div className="absolute left-3 top-3 rounded-full border border-white/30 bg-black/45 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
           {String(index + 1).padStart(2, "0")}
         </div>
-        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
-          <span className="rounded-full bg-[#f5f0e8] px-3 py-1 text-xs font-semibold text-black shadow-sm">
+        <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+          <span className="rounded-full bg-[#f5f0e8] px-2.5 py-1 text-[11px] font-semibold text-black shadow-sm">
             {project.year}
           </span>
-          <span className="h-2 w-12 rounded-full bg-[var(--project-accent)]" />
+          <span className="h-1.5 w-9 rounded-full bg-[var(--project-accent)]" />
         </div>
       </div>
 
-      <div className="flex min-h-0 flex-1 flex-col p-5 md:p-6">
-        <h3 className="line-clamp-2 text-xl font-bold leading-tight text-black md:text-2xl">{project.title}</h3>
-        <p className="line-clamp-3 mt-3 text-sm leading-6 text-black/68">{project.description}</p>
+      <div className="flex min-h-0 flex-col overflow-hidden p-3.5">
+        <h3 className="line-clamp-2 text-[15px] font-bold leading-tight text-black md:text-base">{project.title}</h3>
+        <p className="line-clamp-1 mt-2 text-xs leading-5 text-black/65">{project.description}</p>
 
-        <ul className="mt-4 space-y-2 text-sm leading-5 text-black/78">
-          {project.bulletPoints.slice(0, 2).map((point) => (
-            <li key={point} className="flex gap-2">
-              <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--project-accent)]" />
-              <span className="line-clamp-2">{point}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-auto pt-5">
-          <div className="flex flex-wrap gap-1.5">
+        <div className="mt-auto pt-2.5">
+          <div className="flex flex-wrap gap-1">
             {visibleTech.map((tech) => (
-              <span key={tech} className="rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] text-black/70">
+              <span key={tech} className="rounded-full border border-black/10 bg-white px-2 py-0.5 text-[10px] text-black/68">
                 {tech}
               </span>
             ))}
             {hiddenTechCount > 0 && (
-              <span className="rounded-full border border-black/10 bg-black px-2.5 py-1 text-[11px] text-[#f5f0e8]">
+              <span className="rounded-full border border-black/10 bg-black px-2 py-0.5 text-[10px] text-[#f5f0e8]">
                 +{hiddenTechCount}
               </span>
             )}
@@ -272,10 +294,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-semibold text-[#f5f0e8] transition-colors hover:bg-black/85"
+              className="mt-2 inline-flex max-w-full items-center gap-1.5 self-start rounded-full bg-black px-3 py-1.5 text-xs font-semibold text-[#f5f0e8] transition-colors hover:bg-black/85"
             >
-              {project.linkLabel ?? "View project"}
-              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              <span className="truncate">{project.linkLabel ?? "View project"}</span>
+              <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
             </a>
           )}
         </div>

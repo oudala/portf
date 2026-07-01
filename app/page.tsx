@@ -14,6 +14,7 @@ import { SectionDivider } from "@/components/section-divider"
 import { CVTerminalButton } from "@/components/cv-terminal-button"
 import { Terminal } from "@/components/terminal/terminal"
 import { ChallengesButton } from "@/components/challenges-button"
+import { ResumeDownloadButton } from "@/components/resume-download-button"
 
 export const metadata: Metadata = {
   title: "Oulad Dahman Ilyass | Software Engineer Portfolio",
@@ -52,6 +53,7 @@ export default function HomePage() {
       </div>
 
       <Footer />
+      <ResumeDownloadButton />
       <CVTerminalButton />
       <Terminal />
       <ChallengesButton />

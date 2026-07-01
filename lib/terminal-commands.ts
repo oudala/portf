@@ -83,6 +83,28 @@ ${commands
 
 function getProjectDetails(projectName: string): string {
   const projects: Record<string, string> = {
+    "crescendo-baby-music-management-platform": `
+Crescendo Baby Music Management Platform
+========================================
+Production-ready full-stack platform for children's music classes, bookings, subscriptions, attendance, payments, waitlists, scheduling, and admin operations.
+Implemented secure authentication, QR attendance tracking, WhatsApp notifications, analytics dashboards, and automation workflows.
+Live: booking.crescendobabymusic.com
+Tech: Next.js, React, TypeScript, Prisma, PostgreSQL, Supabase, Tailwind CSS, Twilio WhatsApp API, Cloudinary, Jest, Playwright, Vercel.
+    `,
+    "aws-cost-monitoring": `
+AWS Cost Monitoring System
+==========================
+Intelligent cloud cost surveillance system with anomaly detection and automated Slack alerts.
+Built serverless monitoring workflows for cost reports, scheduling, anomaly checks, and alerting.
+Tech: AWS Lambda, S3, EventBridge, Python, Next.js, TypeScript, Tailwind CSS, Gemini AI.
+    `,
+    "private-cloud-with-apache-cloudstack": `
+Private Cloud with Apache CloudStack
+====================================
+Deployed a private cloud with zones, pods, clusters, storage, virtual networking, and VM provisioning.
+Added infrastructure automation and monitoring with Terraform, Bash, Prometheus, and Grafana.
+Tech: CloudStack, KVM, Linux, Networking, Prometheus, Grafana, Terraform, Bash.
+    `,
     "multimodal-store-management-system": `
 Multimodal Store Management System
 ==================================
@@ -110,14 +132,28 @@ Integrated Caffeine caching and multi-database support (MySQL, PostgreSQL, SQLit
 Packaged as a Maven-compatible library and published on GitHub.
 Technologies used: Java, Reflection, JDBC, Annotations, Caffeine, Maven.
     `,
-    "persistent-memory-efficient-java-hashmap": `
-Persistent, Memory-Efficient Java HashMap
-===========================================
+    "high-performance-persistent-hashmap": `
+High-Performance Persistent HashMap
+===================================
 Built a custom MemoryHashMap with optimized serialization and deserialization to overcome limitations of standard Java's HashMap for persistent data storage.
 Used VisualVM for performance profiling to identify and eliminate bottlenecks, improving save times by 28x (146.819ms -> 5.162ms) and load times by 1.8x (110.372ms -> 60.680ms).
 Reduced memory consumption by 39% (492MB -> 299MB heap usage) while maintaining full data integrity.
 Implemented comprehensive edge case testing and verification using JUnit to ensure reliability across various usage scenarios.
 Tech: Java, JUnit, VisualVM, Custom Serialization, Profiling, Memory Optimization.
+    `,
+    "custom-threadpool-executor": `
+Custom ThreadPool Executor
+==========================
+Implemented a custom Java thread pool executor with blocking queues and adjustable execution policies.
+Focused on concurrency performance, workload management, and controlled task execution behavior.
+Tech: Java, Concurrency, Multithreading, Blocking Queue, Performance.
+    `,
+    "mamafood-traditional-food-delivery-platform": `
+MamaFood Traditional Food Delivery Platform
+==========================================
+Co-founded a social-impact food delivery platform connecting traditional food providers with customers.
+Built workflows for provider onboarding, operational tracking, logistics, and dashboards.
+Tech: Flask, Docker, Plotly, PostgreSQL.
     `,
     "nlp-annotation-platform": `
 NLP Annotation Platform
@@ -160,23 +196,23 @@ where I discovered my passion for creating digital experiences.
       return `
 Technical Skills
 ===============
+Programming Languages:
+- Python, Java, C++, JavaScript, TypeScript, SQL, PL/SQL
+
+Cloud & DevOps:
+- AWS, Azure, OCI, Docker, Kubernetes, Terraform, CI/CD, GitHub Actions, Jenkins
+
 Frontend:
-- React / Next.js
-- TypeScript
-- HTML / CSS / Tailwind
-- Three.js / WebGL
+- Next.js, React, TypeScript, Tailwind CSS, Radix UI
 
 Backend:
-- Node.js / Express
-- Python / Django
-- SQL / NoSQL Databases
-- GraphQL
+- Spring Boot, Flask, REST APIs, Microservices
 
-Other:
-- Git, Docker, CI/CD
-- AWS, Firebase
-- Jest, Cypress
-- Figma, Agile, Scrum
+Databases:
+- MySQL, PostgreSQL, MongoDB, Redis
+
+Testing & Monitoring:
+- Pytest, Selenium, SonarQube, Prometheus, Grafana, Oracle APM
       `
 
     case "projects":
@@ -187,15 +223,18 @@ Other:
       return `
 Projects
 ========
-1. E-commerce Platform
-2. AI Content Generator
-3. 3D Product Configurator
-4. Blockchain Explorer
-5. Real-time Chat Application
-6. Mobile Fitness App
+1. Crescendo Baby Music Management Platform
+2. AWS Cost Monitoring System
+3. Private Cloud with Apache CloudStack
+4. NLP Annotation Platform
+5. High-Performance Persistent HashMap
+6. MyORM - Lightweight Java ORM Library
+7. Custom ThreadPool Executor
+8. Multimodal Store Management System
+9. MamaFood Traditional Food Delivery Platform
 
 For details on a specific project, type: projects <project-name>
-Example: projects e-commerce
+Example: projects aws-cost-monitoring
       `
 
     case "contact":
@@ -299,16 +338,21 @@ Technologies: Java, Python, Spring Boot, Docker, AWS, Azure, Terraform, GitHub A
     education: `
 Education
 =========
-State Engineering Diploma in Software Engineering | National School of Applied Science | 2023 - 2026 | Al Hoceima
+State Engineering Diploma in Software Engineering | National School of Applied Science | 2023 - Jun 2026 | Al Hoceima
 Preparatory Classes to Engineering Degree | National School of Applied Science | 2021 - 2023 | Al Hoceima
     `,
 
     skills: `
 Skills & Technologies
 =====================
-Languages: C++, Java, C#, SQL/PLSQL, JavaScript, Python, PHP
-Technologies: .NET, Networks, NoSQL, Linux, Laravel, Spring Boot, React
-Skills: Leadership, Chess, Problem Solving (extensive experience with Codeforces and LeetCode challenges)
+Programming Languages: Python, Java, C++, JavaScript, TypeScript, SQL, PL/SQL
+Cloud & DevOps: AWS, Azure, OCI, Docker, Kubernetes, Terraform, CI/CD, GitHub Actions, Jenkins
+Frontend: Next.js, React, TypeScript, Tailwind CSS, Radix UI
+Backend: Spring Boot, Flask, REST APIs, Microservices
+Databases: MySQL, PostgreSQL, MongoDB, Redis
+Testing & Monitoring: Pytest, Selenium, SonarQube, Prometheus, Grafana, Oracle APM
+Tools: Git, Slack, Jira, Bitbucket, Linux, VS Code, IntelliJ, Maven
+Specialization: System Design, Distributed Systems, Performance Optimization, Observability
     `,
 
     certifications: `
