@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { type CSSProperties, useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
+import { ExternalLink } from "lucide-react"
 
 interface Project {
   id: string
@@ -142,6 +143,8 @@ const projects: Project[] = [
   },
 ]
 
+const accentColors = ["#a34730", "#2f6f73", "#6b5d95", "#31636f", "#8a6a25", "#4f6f45", "#9c4f65"]
+
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const viewportRef = useRef<HTMLDivElement>(null)
@@ -163,7 +166,7 @@ export function ProjectsSection() {
       const distance = Math.max(0, trackWidth - viewportWidth)
 
       setScrollDistance(distance)
-      setSectionHeight(`${Math.max(window.innerHeight * 1.8, distance + window.innerHeight)}px`)
+      setSectionHeight(`${Math.max(window.innerHeight * 1.35, distance + window.innerHeight * 0.85)}px`)
     }
 
     updateMeasurements()
@@ -173,11 +176,12 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-[#f5f0e8] py-12 md:py-16">
-        <div className="container mx-auto mb-8 px-4 text-center md:mb-10">
-          <h2 className="text-4xl font-bold">Projects</h2>
-          <div className="mt-4 h-[2px] w-32 bg-black mx-auto"></div>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-black/70 md:text-base">
+      <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-[#f5f0e8] py-10 md:py-12">
+        <div className="container mx-auto mb-5 px-4 text-center md:mb-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/50">Selected builds</p>
+          <h2 className="mt-3 text-3xl font-bold md:text-4xl">Projects</h2>
+          <div className="mx-auto mt-4 h-[2px] w-24 bg-black"></div>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-black/65">
             Production platforms, cloud monitoring systems, and engineering libraries built across web, backend, and
             infrastructure work.
           </p>
@@ -187,7 +191,7 @@ export function ProjectsSection() {
           <motion.div
             ref={trackRef}
             style={{ x }}
-            className="flex h-full gap-5 px-4 will-change-transform md:gap-8 md:px-8 lg:px-12"
+            className="flex h-full items-center gap-4 px-4 pb-2 will-change-transform md:gap-5 md:px-8 lg:gap-6 lg:px-12"
           >
             {projects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
@@ -196,7 +200,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="container mx-auto mt-6 px-4">
-          <div className="h-[2px] overflow-hidden bg-black/20">
+          <div className="mx-auto h-[2px] max-w-3xl overflow-hidden bg-black/15">
             <motion.div className="h-full origin-left bg-black" style={{ scaleX: progressScale }} />
           </div>
         </div>
@@ -206,39 +210,61 @@ export function ProjectsSection() {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const visibleTech = project.technologies.slice(0, 7)
+  const hiddenTechCount = project.technologies.length - visibleTech.length
+  const accentColor = accentColors[index % accentColors.length]
+
   return (
-    <article className="grid h-full min-w-[86vw] overflow-hidden border border-black bg-white shadow-lg md:min-w-[760px] lg:min-w-[1080px] lg:grid-cols-[0.95fr_1.05fr]">
-      <div className="relative min-h-44 border-b border-black lg:min-h-0 lg:border-b-0 lg:border-r">
-        <Image src={project.image} alt={project.title} fill className="object-cover" unoptimized sizes="86vw" />
-        <div className="absolute left-4 top-4 border border-black bg-[#f5f0e8]/90 px-3 py-1 text-xs font-medium uppercase tracking-wider backdrop-blur-sm">
-          Project {String(index + 1).padStart(2, "0")}
+    <article
+      className="group flex h-[clamp(455px,61vh,560px)] min-w-[min(84vw,350px)] flex-col overflow-hidden rounded-[6px] border border-black/10 bg-[#fffaf6] shadow-[0_18px_45px_rgba(0,0,0,0.10)] ring-1 ring-white/60 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.14)] sm:min-w-[380px] md:min-w-[420px] lg:min-w-[455px] xl:min-w-[480px]"
+      style={{ "--project-accent": accentColor } as CSSProperties}
+    >
+      <div className="relative h-40 shrink-0 overflow-hidden bg-black sm:h-44 lg:h-48">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
+          unoptimized
+          sizes="(min-width: 1280px) 480px, (min-width: 1024px) 455px, (min-width: 768px) 420px, 84vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-black/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+          {String(index + 1).padStart(2, "0")}
+        </div>
+        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+          <span className="rounded-full bg-[#f5f0e8] px-3 py-1 text-xs font-semibold text-black shadow-sm">
+            {project.year}
+          </span>
+          <span className="h-2 w-12 rounded-full bg-[var(--project-accent)]" />
         </div>
       </div>
 
-      <div className="flex min-h-0 flex-col overflow-y-auto p-5 md:p-8 lg:p-10">
-        <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <h3 className="text-2xl font-bold leading-tight md:text-3xl">{project.title}</h3>
-          <span className="w-fit shrink-0 border-2 border-black px-2 py-1 text-sm font-medium">{project.year}</span>
-        </div>
+      <div className="flex min-h-0 flex-1 flex-col p-5 md:p-6">
+        <h3 className="line-clamp-2 text-xl font-bold leading-tight text-black md:text-2xl">{project.title}</h3>
+        <p className="line-clamp-3 mt-3 text-sm leading-6 text-black/68">{project.description}</p>
 
-        <p className="text-base text-black/80 md:text-lg">{project.description}</p>
-
-        <ul className="mt-5 space-y-2 pl-5 text-sm text-black/90 marker:text-black">
-          {project.bulletPoints.map((point) => (
-            <li key={point} className="list-disc">
-              {point}
+        <ul className="mt-4 space-y-2 text-sm leading-5 text-black/78">
+          {project.bulletPoints.slice(0, 2).map((point) => (
+            <li key={point} className="flex gap-2">
+              <span className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--project-accent)]" />
+              <span className="line-clamp-2">{point}</span>
             </li>
           ))}
         </ul>
 
-        <div className="mt-auto pt-6">
-          <h4 className="mb-2 text-sm font-medium">Technologies:</h4>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <span key={tech} className="border border-black bg-black/5 px-2 py-1 text-xs">
+        <div className="mt-auto pt-5">
+          <div className="flex flex-wrap gap-1.5">
+            {visibleTech.map((tech) => (
+              <span key={tech} className="rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] text-black/70">
                 {tech}
               </span>
             ))}
+            {hiddenTechCount > 0 && (
+              <span className="rounded-full border border-black/10 bg-black px-2.5 py-1 text-[11px] text-[#f5f0e8]">
+                +{hiddenTechCount}
+              </span>
+            )}
           </div>
 
           {project.url && (
@@ -246,9 +272,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex border border-black bg-black px-4 py-2 text-sm font-medium text-[#f5f0e8] transition-colors hover:bg-black/85"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-semibold text-[#f5f0e8] transition-colors hover:bg-black/85"
             >
               {project.linkLabel ?? "View project"}
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           )}
         </div>
